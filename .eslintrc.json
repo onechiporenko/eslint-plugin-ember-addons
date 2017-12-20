@@ -1,0 +1,13 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "quotes": [2, "double"]
+  },
+  "env": {
+    "node": true
+  }
+}
