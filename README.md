@@ -42,6 +42,6 @@ Add `ember-addons` to the plugins section of your `.eslintrc` configuration file
 | Rule | Description |
 |----- | ------------|
 | [i18n-t-file-format](./docs/rules/i18n-t-file-format.md)| Checks translations-json format |
-| [i18n-t-file-eq](./docs/rules/i18n-t-file-eq.md) | Checks that translation-jsons match default one |
+| [i18n-t-files-eq](./docs/rules/i18n-t-files-eq.md) | Checks that translation-jsons match default one |
 | [page-object-exports](./docs/rules/page-object-exports.md) | Check `export` for each page-object |
 | [page-object-match](./docs/rules/page-object-match.md) | Check if page or component for page-object exists |
