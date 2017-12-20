@@ -1,5 +1,10 @@
 # eslint-plugin-ember-addons
 
+[![Build Status](https://travis-ci.org/onechiporenko/eslint-plugin-ember-addons.svg?branch=master)](https://travis-ci.org/onechiporenko/eslint-plugin-ember-addons)
+[![npm version](https://badge.fury.io/js/eslint-plugin-ember-addons.png)](http://badge.fury.io/js/eslint-plugin-ember-addons)
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
+[![Downloads](http://img.shields.io/npm/dm/eslint-plugin-ember-addons.svg)](https://www.npmjs.com/package/eslint-plugin-ember-addons)
+
 Several rules for ember-addons:
 
 * [ember-cli-page-object](https://github.com/san650/ember-cli-page-object)
