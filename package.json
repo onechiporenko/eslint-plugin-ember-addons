@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-ember-addons",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Several rules for ember-addons",
   "keywords": [
     "eslint",

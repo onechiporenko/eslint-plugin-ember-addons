@@ -81,7 +81,7 @@ filenames = [
   "a-b.js",
   "a-b/c-d.js"
 ];
-const msgs = [
+let msgs = [
   "", "", "", "", "", "",
   "\"tests/pages/components/a-b.js\" doesn't match any component",
   "\"tests/pages/components/a-b/c-d.js\" doesn't match any component",
@@ -123,4 +123,55 @@ ruleTester.run("page-object-match", rule, {
       ]
     }
   }),
+});
+
+
+/*                           *\
+ * ***************************
+ * Needed file doesn't exist *
+ * ***************************
+ \*                           */
+
+filenames = [
+  "index.js",
+  "loading.js",
+  "error.js",
+  "a-b/index.js",
+  "a-b/loading.js",
+  "a-b/error.js",
+  "components/a-b.js",
+  "components/a-b/c-d.js",
+  "a-b.js",
+  "a-b/c-d.js"
+];
+msgs = ["", "", "", "", "", "", "", "", "", ""];
+let k = 0;
+RuleTester.it = function (text, method) {
+  // more hacks!
+  it(text, () => {
+    try {
+      sinon.stub(fs, "existsSync").callsFake(() => false);
+      sinon.stub(pageObject, "getFilename").callsFake(() => "/root/tests/pages/" + filenames[k]);
+      method.call(this);
+    }
+    catch (e) {
+      throw e;
+    }
+    finally {
+      k++;
+      fs.existsSync.restore();
+      pageObject.getFilename.restore();
+    }
+  });
+};
+
+ruleTester = new RuleTester();
+ruleTester.run("page-object-match", rule, {
+  valid: filenames.map(f => {
+    return {code: `/* '${f}' */`, options: [{
+      ignoredComponents: ["a-b", "a-b/c-d"],
+      ignoredPages: ["a-b", "a-b/c-d"]
+    }]};
+  }),
+  invalid: []
 });
